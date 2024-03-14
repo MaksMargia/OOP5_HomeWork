@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class UserController {
     private final GBRepository repository;
 
-    // DI
+    
     public UserController(GBRepository repository) {
         this.repository = repository;
     }

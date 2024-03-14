@@ -101,18 +101,15 @@ public class UserRepository implements GBRepository {
     public List<String> readAll() {
         List<String> lines = new ArrayList<>();
         try {
-                File file = new File(fileName);
-                //создаем объект FileReader для объекта File
+                File file = new File(fileName);               
                 FileReader fr = new FileReader(file);
-                //создаем BufferedReader с существующего FileReader для построчного считывания
-                BufferedReader reader = new BufferedReader(fr);
-                // считаем сначала первую строку
+                BufferedReader reader = new BufferedReader(fr);             
                 String line = reader.readLine();
                 if (line != null) {
                     lines.add(line);
                 }
                 while (line != null) {
-                    // считываем остальные строки в цикле
+                  
                     line = reader.readLine();
                     if (line != null) {
                         lines.add(line);
@@ -129,9 +126,7 @@ public class UserRepository implements GBRepository {
     public void saveAll(List<String> data) {
         try (FileWriter writer = new FileWriter(fileName, false)) {
             for (String line : data) {
-                // запись всей строки
-                writer.write(line);
-                // запись по символам
+                writer.write(line);               
                 writer.append('\n');
             }
             writer.flush();
